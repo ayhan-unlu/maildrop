@@ -1,0 +1,19 @@
+{
+  "name": "maildrop",
+  "version": "1.0.0",
+  "description": "WhatsApp to Email forwarder — send files from your phone to your inbox instantly",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.0",
+    "dotenv": "^16.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

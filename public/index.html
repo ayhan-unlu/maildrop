@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="MailDrop — Instantly forward WhatsApp files to your email inbox">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>MailDrop</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">📧</span>
+          <h1>MailDrop</h1>
+        </div>
+        <div class="status-badge" id="statusBadge">
+          <span class="status-dot"></span>
+          <span class="status-text">Checking...</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- File Drop Zone -->
+      <div class="card file-card">
+        <div class="drop-zone" id="dropZone">
+          <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.rtf" hidden>
+          <div class="drop-zone-content" id="dropZoneContent">
+            <div class="drop-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </div>
+            <p class="drop-text">Tap to pick files</p>
+            <p class="drop-hint">PDF, Word, Images — up to 10 files</p>
+          </div>
+        </div>
+
+        <!-- Selected Files List -->
+        <div class="file-list" id="fileList" style="display: none;">
+          <div class="file-list-header">
+            <span class="file-count" id="fileCount">0 files</span>
+            <button class="btn-clear" id="clearFiles" type="button">Clear all</button>
+          </div>
+          <div class="file-items" id="fileItems"></div>
+          <button class="btn-add-more" id="addMoreBtn" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add more files
+          </button>
+        </div>
+      </div>
+
+      <!-- Subject / Reference -->
+      <div class="card subject-card">
+        <label for="subjectInput" class="input-label">Reference / Job Number</label>
+        <input type="text" id="subjectInput" class="subject-input" placeholder="e.g. 1042" autocomplete="off">
+      </div>
+
+      <!-- Send Button -->
+      <button class="btn-send" id="sendBtn" type="button" disabled>
+        <span class="btn-send-content" id="sendBtnContent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Send to Email
+        </span>
+        <span class="btn-send-loading" id="sendBtnLoading" style="display: none;">
+          <div class="spinner"></div>
+          Sending...
+        </span>
+      </button>
+
+      <!-- History -->
+      <div class="card history-card" id="historyCard" style="display: none;">
+        <div class="history-header">
+          <h2>Recent Sends</h2>
+          <button class="btn-clear-history" id="clearHistory" type="button">Clear</button>
+        </div>
+        <div class="history-items" id="historyItems"></div>
+      </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+      <div class="toast-icon" id="toastIcon"></div>
+      <div class="toast-message" id="toastMessage"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
