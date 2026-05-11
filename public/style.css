@@ -218,6 +218,23 @@ body::before {
 .toast-icon { font-size: 18px; flex-shrink: 0; }
 .toast-message { font-size: 14px; font-weight: 500; }
 
+/* Setup Modal */
+.setup-modal {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.setup-card {
+  background: var(--bg-secondary); border: 1px solid var(--border-color);
+  border-radius: var(--radius); padding: 32px 24px;
+  max-width: 380px; width: 100%; text-align: center;
+}
+.setup-icon { font-size: 48px; margin-bottom: 16px; }
+.setup-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.setup-card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+.setup-hint { font-size: 11px; color: var(--text-muted); margin-top: 16px !important; margin-bottom: 0 !important; }
+
 @media (min-width: 481px) {
   .app-container { padding: 0 20px; }
   .main-content { padding: 24px 0; }

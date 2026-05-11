@@ -99,6 +99,20 @@
       <div class="toast-icon" id="toastIcon"></div>
       <div class="toast-message" id="toastMessage"></div>
     </div>
+
+    <!-- Setup Modal (shown on first launch in native mode) -->
+    <div class="setup-modal" id="setupModal" style="display: none;">
+      <div class="setup-card">
+        <div class="setup-icon">📧</div>
+        <h2>Welcome to MailDrop</h2>
+        <p>Enter your email address to receive forwarded files:</p>
+        <input type="email" id="setupEmailInput" class="subject-input" placeholder="your-email@gmail.com" autocomplete="email">
+        <button class="btn-send" id="setupSaveBtn" type="button" style="margin-top: 12px;">
+          Save & Start
+        </button>
+        <p class="setup-hint">Tap the MailDrop logo anytime to change this</p>
+      </div>
+    </div>
   </div>
 
   <script src="/app.js"></script>
